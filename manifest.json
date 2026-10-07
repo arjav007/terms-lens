@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "TermsLens - Legal & Privacy Summarizer",
+  "version": "1.0.0",
+  "description": "Scans Terms of Service and Privacy Policies in real time to generate instant risk scorecards.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TermsLens Summary"
+  }
+}
